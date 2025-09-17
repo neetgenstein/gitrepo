@@ -1,0 +1,14 @@
+sudo apt update; sudo apt install cron
+systemctl status cron
+systemctl restart cron
+sudo apt install gedit
+sudo gedit ~/task.sh -
+#!/bin/bash
+echo “Hi hello $(date)” >> ~/output.txt
+sudo chmod +x ~/task.sh
+crontab -e : remove task.sh line
+crontab -e : add again * * * * * ~/task.sh
+watch ls
+ls : view output.txt
+cat output.txt
+watch cat output.txt

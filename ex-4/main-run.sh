@@ -97,6 +97,6 @@ EOF
 
 SOURCE_DEFAULT="~/gitrepo/ex-4/default"
 TARGET_DEFAULT="/etc/nginx/sites-available/default"
-cat "$SOURCE_FILE" > "$TARGET_FILE"
+cat "$SOURCE_DEFAULT" > "$TARGET_DEFAULT"
 
 systemctl restart nginx

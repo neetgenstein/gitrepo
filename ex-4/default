@@ -50,7 +50,7 @@ server {
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
 		proxy_pass http://backend;
-		proxy_next_upstream error timeout invalid_headers http_500 http_502 http_503 http_504;
+		proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
 	}
 
 	# pass PHP scripts to FastCGI server
