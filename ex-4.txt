@@ -1,0 +1,31 @@
+ex4
+VMware Workstation : create vm_lb and vm1, vm2 (clones of vm_lb)
+
+In vm_lb:
+sudo apt update
+sudo apt install nginx
+cd /etc
+cd nginx
+sudo apt install gedit
+
+sudo gedit nginx.conf -
+http{ upstream backend{
+server [ip a in vm1];
+server [ip a in vm2];
+}
+
+cd sites-available
+sudo gedit default -
+server{ location{
+proxy_pass http://backend;
+proxy_next_upstream error timeout invalid_header http_500 http_502
+http_503 http_504;
+}
+
+vm1: sudo apt update; sudo apt install apache2 - y; systemctl status apache2;
+cd /var; cd www; cd html; sudo apt install gedit; sudo gedit index.html; edit “hi”
+vm2: repeat above steps
+
+In vm_lb:
+systemctl restart nginx;
+systemctl status nginx;
